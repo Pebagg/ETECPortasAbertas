@@ -4,51 +4,67 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Turismo Interestelar - Alunos Desenvolvedores</title>
+  <title>Turismo Interestelar - Profª Célia</title>
   <link rel="icon" href="img/astronautasemfundo.png" type="image/png">
   <link rel="stylesheet" href="style.css">
+  <style>
+    .hidden {
+      display: none !important;
+    }
+  </style>
 </head>
 
 <body>
   <header>
-    <div class="logo">🚀 Turismo Interestelar</div>
+    <div class="logo">
+      <span class="lang-pt">🚀 Turismo Interestelar</span>
+      <span class="lang-en hidden">🚀 Interstellar Tourism</span>
+    </div>
     <nav>
       <ul>
-        <li><a href="index.html">HOME</a></li>
-        <li><a href="sobre.html">SOBRE</a></li>
-        <li><a href="aplicacoes.html">APLICAÇÕES</a></li>
-        <li><a href="bibliografia.html">BIBLIOGRAFIA</a></li>
+        <li><a href="index.html"><span class="lang-pt">HOME</span><span class="lang-en hidden">HOME</span></a></li>
+        <li><a href="sobre.html"><span class="lang-pt">SOBRE</span><span class="lang-en hidden">ABOUT</span></a></li>
+        <li><a href="aplicacoes.html"><span class="lang-pt">APLICAÇÕES</span><span class="lang-en hidden">APPLICATIONS</span></a></li>
+        <li><a href="bibliografia.html"><span class="lang-pt">BIBLIOGRAFIA</span><span class="lang-en hidden">BIBLIOGRAPHY</span></a></li>
         
         <!-- Menu Dropdown de Créditos -->
         <li class="dropdown">
-          <a href="#" class="active">CRÉDITOS ▼</a>
+          <a href="#" class="active">
+            <span class="lang-pt">CRÉDITOS ▼</span>
+            <span class="lang-en hidden">CREDITS ▼</span>
+          </a>
           <ul class="dropdown-content">
-            <li><a href="creditos.html">Alunos Desenvolvedores</a></li>
-            <li><a href="creditoscelia.html">Profª Célia</a></li>
-            <li><a href="creditoswaldir.html">Profº Waldir</a></li>
+            <li><a href="creditos.html"><span class="lang-pt">Alunos Desenvolvedores</span><span class="lang-en hidden">Student Developers</span></a></li>
+            <li><a href="creditoscelia.html"><span class="lang-pt">Profª Célia</span><span class="lang-en hidden">Prof. Célia</span></a></li>
+            <li><a href="creditoswaldir.html"><span class="lang-pt">Profº Waldir</span><span class="lang-en hidden">Prof. Waldir</span></a></li>
           </ul>
         </li>
 
-        <li><a href="contato.html">CONTATO</a></li>
+        <li><a href="contato.html"><span class="lang-pt">CONTATO</span><span class="lang-en hidden">CONTACT</span></a></li>
       </ul>
     </nav>
-    <button class="lang-btn" onclick="toggleLanguage()" id="langBtn">Translate to english</button>
+    <button class="lang-btn" onclick="toggleLanguage()" id="langBtn">Translate to English 🇺🇸</button>
   </header>
 
   <main>
     <section class="content-section">
-      <h2>Orientação e Docência</h2>
-      <p>Informações acadêmicas e profissionais do docente orientador.</p>
+      <h2>
+        <span class="lang-pt">Orientação e Docência</span>
+        <span class="lang-en hidden">Guidance and Teaching</span>
+      </h2>
+      <p>
+        <span class="lang-pt">Informações acadêmicas e profissionais do docente orientador.</span>
+        <span class="lang-en hidden">Academic and professional information of the guiding teacher.</span>
+      </p>
 
       <div class="topic-grid">
         <div class="topic-card" style="max-width: 400px; margin: 20px auto;">
           <div class="card-icon">👩‍🏫</div>
-          <h3>-Profª Célia Aparecida Barufaldi</h3>
+          <h3>- Profª Célia Aparecida Barufaldi</h3>
           <p style="text-align: left; padding-left: 20px;">
-            • <strong>Graduação:</strong> Tecnologia em Processamento de Dados<br>
-            • <strong>Pós-graduação:</strong>Especialista em Análise de Sistemas<br>
-            • <strong>Mestrado:</strong>Especialista em Redes e Segurança de Dados
-
+            • <strong><span class="lang-pt">Graduação:</span><span class="lang-en hidden">Undergraduate Degree:</span></strong> <span class="lang-pt">Tecnologia em Processamento de Dados</span><span class="lang-en hidden">Technology in Data Processing</span><br>
+            • <strong><span class="lang-pt">Pós-graduação:</span><span class="lang-en hidden">Postgraduate Degree:</span></strong> <span class="lang-pt">Especialista em Análise de Sistemas</span><span class="lang-en hidden">Specialist in Systems Analysis</span><br>
+            • <strong><span class="lang-pt">Mestrado / Especialização:</span><span class="lang-en hidden">Master's / Specialization:</span></strong> <span class="lang-pt">Especialista em Redes e Segurança de Dados</span><span class="lang-en hidden">Specialist in Networks and Data Security</span>
           </p>
         </div>
       </div>
@@ -56,7 +72,49 @@
   </main>
 
   <footer>
-    <p>&copy; 2026 AstroViagens. Todos os direitos reservados.</p>
+    <p>
+      <span class="lang-pt">ETEC DE HORTOLÂNDIA 2026 – &copy;Todos os direitos reservados</span>
+      <span class="lang-en hidden">ETEC DE HORTOLÂNDIA 2026 – &copy;All rights reserved</span>
+    </p>
+    <p>
+      <small>
+        <span class="lang-pt">Trabalho acadêmico sem fins lucrativos</span>
+        <span class="lang-en hidden">Non-profit academic work</span>
+      </small>
+    </p>
   </footer>
+
+  <script>
+    // --- GERENCIADOR DE IDIOMA ---
+    function setLanguage(lang) {
+      const ptElements = document.querySelectorAll('.lang-pt');
+      const enElements = document.querySelectorAll('.lang-en');
+      const btn = document.getElementById('langBtn');
+
+      if (lang === 'en') {
+        ptElements.forEach(el => el.classList.add('hidden'));
+        enElements.forEach(el => el.classList.remove('hidden'));
+        if (btn) btn.textContent = 'Traduzir para Português 🇧🇷';
+      } else {
+        enElements.forEach(el => el.classList.add('hidden'));
+        ptElements.forEach(el => el.classList.remove('hidden'));
+        if (btn) btn.textContent = 'Translate to English 🇺🇸';
+      }
+      localStorage.setItem('preferred_lang', lang);
+    }
+
+    function toggleLanguage() {
+      const currentLang = localStorage.getItem('preferred_lang') || 'pt';
+      const newLang = (currentLang === 'pt') ? 'en' : 'pt';
+      setLanguage(newLang);
+    }
+
+    // Aplica o idioma salvo ao carregar a página e mantém sincronizado entre as páginas do site
+    window.addEventListener('DOMContentLoaded', () => {
+      const savedLang = localStorage.getItem('preferred_lang') || 'pt';
+      setLanguage(savedLang);
+    });
+  </script>
 </body>
+
 </html>

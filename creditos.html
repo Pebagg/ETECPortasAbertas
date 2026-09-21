@@ -7,43 +7,63 @@
   <title>Turismo Interestelar - Alunos Desenvolvedores</title>
   <link rel="icon" href="img/astronautasemfundo.png" type="image/png">
   <link rel="stylesheet" href="style.css">
+  <style>
+    .hidden {
+      display: none !important;
+    }
+  </style>
 </head>
 
 <body>
   <header>
-    <div class="logo">🚀 Turismo Interestelar</div>
+    <div class="logo">
+      <span class="lang-pt">🚀 Turismo Interestelar</span>
+      <span class="lang-en hidden">🚀 Interstellar Tourism</span>
+    </div>
     <nav>
       <ul>
-        <li><a href="index.html">HOME</a></li>
-        <li><a href="sobre.html">SOBRE</a></li>
-        <li><a href="aplicacoes.html">APLICAÇÕES</a></li>
-        <li><a href="bibliografia.html">BIBLIOGRAFIA</a></li>
+        <li><a href="index.html"><span class="lang-pt">HOME</span><span class="lang-en hidden">HOME</span></a></li>
+        <li><a href="sobre.html"><span class="lang-pt">SOBRE</span><span class="lang-en hidden">ABOUT</span></a></li>
+        <li><a href="aplicacoes.html"><span class="lang-pt">APLICAÇÕES</span><span class="lang-en hidden">APPLICATIONS</span></a></li>
+        <li><a href="bibliografia.html"><span class="lang-pt">BIBLIOGRAFIA</span><span class="lang-en hidden">BIBLIOGRAPHY</span></a></li>
         
         <!-- Menu Dropdown de Créditos -->
         <li class="dropdown">
-          <a href="#" class="active">CRÉDITOS ▼</a>
+          <a href="#" class="active">
+            <span class="lang-pt">CRÉDITOS ▼</span>
+            <span class="lang-en hidden">CREDITS ▼</span>
+          </a>
           <ul class="dropdown-content">
-            <li><a href="creditos.html">Alunos Desenvolvedores</a></li>
-            <li><a href="creditoscelia.html">Profª Célia</a></li>
-            <li><a href="creditoswaldir.html">Profº Waldir</a></li>
+            <li><a href="creditos.html"><span class="lang-pt">Alunos Desenvolvedores</span><span class="lang-en hidden">Student Developers</span></a></li>
+            <li><a href="creditoscelia.html"><span class="lang-pt">Profª Célia</span><span class="lang-en hidden">Prof. Célia</span></a></li>
+            <li><a href="creditoswaldir.html"><span class="lang-pt">Profº Waldir</span><span class="lang-en hidden">Prof. Waldir</span></a></li>
           </ul>
         </li>
 
-        <li><a href="contato.html">CONTATO</a></li>
+        <li><a href="contato.html"><span class="lang-pt">CONTATO</span><span class="lang-en hidden">CONTACT</span></a></li>
       </ul>
     </nav>
-    <button class="lang-btn" onclick="toggleLanguage()" id="langBtn">Translate to english</button>
+    <button class="lang-btn" onclick="toggleLanguage()" id="langBtn">Translate to English 🇺🇸</button>
   </header>
 
   <main>
     <section class="content-section">
-      <h2>Alunos Desenvolvedores</h2>
-      <p>Conheça os integrantes responsáveis pela criação e desenvolvimento deste projeto.</p>
+      <h2>
+        <span class="lang-pt">Alunos Desenvolvedores</span>
+        <span class="lang-en hidden">Student Developers</span>
+      </h2>
+      <p>
+        <span class="lang-pt">Conheça os integrantes responsáveis pela criação e desenvolvimento deste projeto.</span>
+        <span class="lang-en hidden">Meet the members responsible for creating and developing this project.</span>
+      </p>
 
       <div class="topic-grid">
         <div class="topic-card" style="max-width: 400px; margin: 20px auto;">
           <div class="card-icon">👥</div>
-          <h3>Equipe de Alunos</h3>
+          <h3>
+            <span class="lang-pt">Equipe de Alunos</span>
+            <span class="lang-en hidden">Student Team</span>
+          </h3>
           <p style="text-align: left; padding-left: 20px;">
             • Samuel Castilho Sousa<br>
             • Luiz Henrique Marciano Zorzzato<br>
@@ -56,7 +76,81 @@
   </main>
 
   <footer>
-    <p>&copy; 2026 AstroViagens. Todos os direitos reservados.</p>
+    <p>
+      <span class="lang-pt">ETEC DE HORTOLÂNDIA 2026 – &copy;Todos os direitos reservados</span>
+      <span class="lang-en hidden">ETEC DE HORTOLÂNDIA 2026 – &copy;All rights reserved</span>
+    </p>
+    <p>
+      <small>
+        <span class="lang-pt">Trabalho acadêmico sem fins lucrativos</span>
+        <span class="lang-en hidden">Non-profit academic work</span>
+      </small>
+    </p>
   </footer>
+
+  <script>
+    let slideIndex = 1;
+    let timer = null;
+
+    showSlides(slideIndex);
+    startTimer();
+
+    function moveSlide(n) {
+      clearInterval(timer);
+      showSlides(slideIndex += n);
+      startTimer();
+    }
+
+    function showSlides(n) {
+      let slides = document.getElementsByClassName("carousel-slide");
+      if (slides.length === 0) return;
+
+      if (n > slides.length) { slideIndex = 1; }
+      if (n < 1) { slideIndex = slides.length; }
+
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slides[slideIndex - 1].style.display = "block";
+    }
+
+    function startTimer() {
+      timer = setInterval(() => {
+        slideIndex++;
+        showSlides(slideIndex);
+      }, 7000);
+    }
+
+    // --- GERENCIADOR DE IDIOMA ---
+    function setLanguage(lang) {
+      const ptElements = document.querySelectorAll('.lang-pt');
+      const enElements = document.querySelectorAll('.lang-en');
+      const btn = document.getElementById('langBtn');
+
+      if (lang === 'en') {
+        ptElements.forEach(el => el.classList.add('hidden'));
+        enElements.forEach(el => el.classList.remove('hidden'));
+        if (btn) btn.textContent = 'Traduzir para Português 🇧🇷';
+      } else {
+        enElements.forEach(el => el.classList.add('hidden'));
+        ptElements.forEach(el => el.classList.remove('hidden'));
+        if (btn) btn.textContent = 'Translate to English 🇺🇸';
+      }
+      localStorage.setItem('preferred_lang', lang);
+    }
+
+    function toggleLanguage() {
+      const currentLang = localStorage.getItem('preferred_lang') || 'pt';
+      const newLang = (currentLang === 'pt') ? 'en' : 'pt';
+      setLanguage(newLang);
+    }
+
+    // Aplica o idioma salvo ao carregar a página
+    window.addEventListener('DOMContentLoaded', () => {
+      const savedLang = localStorage.getItem('preferred_lang') || 'pt';
+      setLanguage(savedLang);
+    });
+  </script>
 </body>
+
 </html>
