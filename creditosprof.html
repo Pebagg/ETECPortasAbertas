@@ -4,12 +4,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Turismo Interestelar - Alunos Desenvolvedores</title>
+  <title>Turismo Interestelar - Professores Orientadores</title>
   <link rel="icon" href="img/astronautasemfundo.png" type="image/png">
   <link rel="stylesheet" href="style.css">
   <style>
     .hidden {
       display: none !important;
+    }
+    /* Estilo para acomodar dois cards lado a lado */
+    .topic-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
     }
   </style>
 </head>
@@ -34,7 +41,7 @@
             <span class="lang-en hidden">CREDITS ▼</span>
           </a>
           <ul class="dropdown-content">
-            <li><a href="creditosprof.html"><span class="lang-pt">Orientadores</span><span class="lang-en hidden">Orientadores</span></a></li>
+            <li><a href="creditosprof.html"><span class="lang-pt">Orientadores</span><span class="lang-en hidden">Advisors</span></a></li>
             <li><a href="creditos.html"><span class="lang-pt">Alunos Desenvolvedores</span><span class="lang-en hidden">Student Developers</span></a></li>
           </ul>
         </li>
@@ -48,26 +55,34 @@
   <main>
     <section class="content-section">
       <h2>
-        <span class="lang-pt">Alunos Desenvolvedores</span>
-        <span class="lang-en hidden">Student Developers</span>
+        <span class="lang-pt">Orientação e Docência</span>
+        <span class="lang-en hidden">Guidance and Teaching</span>
       </h2>
       <p>
-        <span class="lang-pt">Conheça os integrantes responsáveis pela criação e desenvolvimento deste projeto.</span>
-        <span class="lang-en hidden">Meet the members responsible for creating and developing this project.</span>
+        <span class="lang-pt">Informações acadêmicas e profissionais dos docentes orientadores.</span>
+        <span class="lang-en hidden">Academic and professional information of the guiding teachers.</span>
       </p>
 
       <div class="topic-grid">
+        <!-- Card Profª Célia -->
         <div class="topic-card" style="max-width: 400px; margin: 20px auto;">
-          <div class="card-icon">👥</div>
-          <h3>
-            <span class="lang-pt">Equipe de Alunos</span>
-            <span class="lang-en hidden">Student Team</span>
-          </h3>
+          <div class="card-icon">👩‍🏫</div>
+          <h3>- Profª Célia Aparecida Barufaldi</h3>
           <p style="text-align: left; padding-left: 20px;">
-            • Samuel Castilho Sousa<br>
-            • Luiz Henrique Marciano Zorzzato<br>
-            • Leticia de Jesus Cunha<br>
-            • Plinio Da Silva Neto
+            • <strong><span class="lang-pt">Graduação:</span><span class="lang-en hidden">Undergraduate Degree:</span></strong> <span class="lang-pt">Tecnologia em Processamento de Dados</span><span class="lang-en hidden">Technology in Data Processing</span><br>
+            • <strong><span class="lang-pt">Pós-graduação:</span><span class="lang-en hidden">Postgraduate Degree:</span></strong> <span class="lang-pt">Especialista em Análise de Sistemas</span><span class="lang-en hidden">Specialist in Systems Analysis</span><br>
+            • <strong><span class="lang-pt">Mestrado / Especialização:</span><span class="lang-en hidden">Master's / Specialization:</span></strong> <span class="lang-pt">Especialista em Redes e Segurança de Dados</span><span class="lang-en hidden">Specialist in Networks and Data Security</span>
+          </p>
+        </div>
+
+        <!-- Card Profº Waldir -->
+        <div class="topic-card" style="max-width: 400px; margin: 20px auto;">
+          <div class="card-icon">👨‍🏫</div>
+          <h3>Profº Waldir Ferreira da Silva Júnior</h3>
+          <p style="text-align: left; padding-left: 20px;">
+            • <strong><span class="lang-pt">Graduação:</span><span class="lang-en hidden">Undergraduate Degree:</span></strong> <span class="lang-pt">Letras</span><span class="lang-en hidden">Literature / Languages</span><br>
+            • <strong><span class="lang-pt">Pós-graduação:</span><span class="lang-en hidden">Postgraduate Degree:</span></strong> <span class="lang-pt">Psicopedagogia</span><span class="lang-en hidden">Psychopedagogy</span><br>
+            • <strong><span class="lang-pt">Mestrado:</span><span class="lang-en hidden">Master's Degree:</span></strong> <span class="lang-pt">Educação</span><span class="lang-en hidden">Education</span>
           </p>
         </div>
       </div>
@@ -88,38 +103,6 @@
   </footer>
 
   <script>
-    let slideIndex = 1;
-    let timer = null;
-
-    showSlides(slideIndex);
-    startTimer();
-
-    function moveSlide(n) {
-      clearInterval(timer);
-      showSlides(slideIndex += n);
-      startTimer();
-    }
-
-    function showSlides(n) {
-      let slides = document.getElementsByClassName("carousel-slide");
-      if (slides.length === 0) return;
-
-      if (n > slides.length) { slideIndex = 1; }
-      if (n < 1) { slideIndex = slides.length; }
-
-      for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-      }
-      slides[slideIndex - 1].style.display = "block";
-    }
-
-    function startTimer() {
-      timer = setInterval(() => {
-        slideIndex++;
-        showSlides(slideIndex);
-      }, 7000);
-    }
-
     // --- GERENCIADOR DE IDIOMA ---
     function setLanguage(lang) {
       const ptElements = document.querySelectorAll('.lang-pt');
@@ -144,7 +127,7 @@
       setLanguage(newLang);
     }
 
-    // Aplica o idioma salvo ao carregar a página
+    // Aplica o idioma salvo ao carregar a página e mantém sincronizado entre as páginas do site
     window.addEventListener('DOMContentLoaded', () => {
       const savedLang = localStorage.getItem('preferred_lang') || 'pt';
       setLanguage(savedLang);
