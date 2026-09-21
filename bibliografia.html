@@ -26,14 +26,13 @@
         </li>
       </ul>
     </nav>
-    <button class="lang-btn" onclick="toggleLanguage()" id="langBtn">WQRWD</button>
+    <button class="lang-btn" onclick="toggleLanguage()" id="langBtn">Translate to english</button>
   </header>
 
   <main>
     <section class="content-section card-style">
       <h2>
-        <span class="lang-pt">Referências</span>
-        <span class="lang-en hidden">references</span>
+        <span class="lang-pt">Referências</span><span class="lang-en hidden">References</span>
       </h2>
       <br><br>
       <a href="https://pt.wikipedia.org/wiki/Viagem_espacial">https://pt.wikipedia.org/wiki/Viagem_espacial</a><br>
@@ -50,6 +49,36 @@
     <p><small>Trabalho acadêmico sem fins lucrativos</small></p>
   </footer>
 
+  <script>
+    function setLanguage(lang) {
+      const ptElements = document.querySelectorAll('.lang-pt');
+      const enElements = document.querySelectorAll('.lang-en');
+      const btn = document.getElementById('langBtn');
+
+      if (lang === 'en') {
+        ptElements.forEach(el => el.classList.add('hidden'));
+        enElements.forEach(el => el.classList.remove('hidden'));
+        if (btn) btn.textContent = 'Traduzir para Português';
+      } else {
+        enElements.forEach(el => el.classList.add('hidden'));
+        ptElements.forEach(el => el.classList.remove('hidden'));
+        if (btn) btn.textContent = 'Translate to English';
+
+      }
+      localStorage.setItem('preferred_lang', lang);
+    }
+
+    function toggleLanguage() {
+      const currentLang = localStorage.getItem('preferred_lang') || 'pt';
+      const newLang = (currentLang === 'pt') ? 'en' : 'pt';
+      setLanguage(newLang);
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const savedLang = localStorage.getItem('preferred_lang') || 'pt';
+      setLanguage(savedLang);
+    });
+  </script>
 
 </body>
 

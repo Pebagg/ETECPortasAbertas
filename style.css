@@ -484,3 +484,48 @@ footer {
   from { opacity: 0; transform: translateY(-20px); }
   to { opacity: 1; transform: translateY(0); }
 }
+nav ul {
+  position: relative;
+}
+
+nav li.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: rgba(13, 2, 33, 0.95);
+  backdrop-filter: blur(10px);
+  min-width: 160px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.4);
+  border-radius: 8px;
+  border: 1px solid rgba(69, 242, 248, 0.3);
+  z-index: 1001;
+  list-style: none;
+  flex-direction: column;
+  padding: 8px 0;
+}
+
+.dropdown-content li {
+  width: 100%;
+}
+
+.dropdown-content a {
+  padding: 8px 16px;
+  display: block;
+  font-size: 0.85rem;
+  border-radius: 0;
+}
+
+.dropdown-content a:hover {
+  background: #4745c4;
+  box-shadow: none;
+}
+
+/* Mostra o menu suspenso ao passar o mouse */
+nav li.dropdown:hover .dropdown-content {
+  display: flex;
+}

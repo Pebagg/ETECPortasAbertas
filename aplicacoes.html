@@ -21,7 +21,7 @@
         <li><a href="contato.html"><span class="lang-pt">CONTATO</span><span class="lang-en hidden">CONTACT</span></a></li>
       </ul>
     </nav>
-    <button class="lang-btn" onclick="toggleLanguage()" id="langBtn"></button>
+    <button class="lang-btn" onclick="toggleLanguage()" id="langBtn">Translate to english</button>
   </header>
 
   <main>
@@ -66,11 +66,11 @@
       if (lang === 'en') {
         ptElements.forEach(el => el.classList.add('hidden'));
         enElements.forEach(el => el.classList.remove('hidden'));
-        if (btn) btn.textContent = 'Traduzir para Português 🇧🇷';
+        if (btn) btn.textContent = 'Traduzir para Português';
       } else {
         enElements.forEach(el => el.classList.add('hidden'));
         ptElements.forEach(el => el.classList.remove('hidden'));
-        if (btn) btn.textContent = 'Translate to English 🌐';
+        if (btn) btn.textContent = 'Translate to English';
 
       }
       localStorage.setItem('preferred_lang', lang);

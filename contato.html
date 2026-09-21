@@ -21,7 +21,7 @@
         <li><a href="contato.html"><span class="lang-pt">CONTATO</span><span class="lang-en hidden">CONTACT</span></a></li>
       </ul>
     </nav>
-    <button class="lang-btn" onclick="toggleLanguage()" id="langBtn">WQRWD</button>
+    <button class="lang-btn" onclick="toggleLanguage()" id="langBtn">Translate to english</button>
   </header>
 
   <main>
@@ -107,7 +107,6 @@
   </footer>
 
   <script>
-    // --- GERENCIADOR DE IDIOMA ---
     function setLanguage(lang) {
       const ptElements = document.querySelectorAll('.lang-pt');
       const enElements = document.querySelectorAll('.lang-en');
@@ -116,11 +115,12 @@
       if (lang === 'en') {
         ptElements.forEach(el => el.classList.add('hidden'));
         enElements.forEach(el => el.classList.remove('hidden'));
-        if (btn) btn.textContent = 'Traduzir para Português 🇧🇷';
+        if (btn) btn.textContent = 'Traduzir para Português';
       } else {
         enElements.forEach(el => el.classList.add('hidden'));
         ptElements.forEach(el => el.classList.remove('hidden'));
-        if (btn) btn.textContent = 'Translate to English 🇺🇸';
+        if (btn) btn.textContent = 'Translate to English';
+
       }
       localStorage.setItem('preferred_lang', lang);
     }
@@ -134,6 +134,8 @@
     window.addEventListener('DOMContentLoaded', () => {
       const savedLang = localStorage.getItem('preferred_lang') || 'pt';
       setLanguage(savedLang);
+    });
+  
 
       // --- VALIDAÇÃO ADICIONAL COM JS ---
       const form = document.getElementById('contactForm');
@@ -156,7 +158,6 @@
           successMsg.classList.add('hidden');
         }, 5000);
       });
-    });
   </script>
 
 </body>
