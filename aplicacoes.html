@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Turismo Interestelar - Aplicações</title>
+  <link rel="icon" href="img/astronautasemfundo.png" type="image/png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <div class="logo">🚀 AstroTrip</div>
+    <nav>
+      <ul>
+        <li><a href="index.html"><span class="lang-pt">HOME</span><span class="lang-en hidden">HOME</span></a></li>
+        <li><a href="sobre.html"><span class="lang-pt">SOBRE</span><span class="lang-en hidden">ABOUT</span></a></li>
+        <li><a href="aplicacoes.html" class="active"><span class="lang-pt">APLICAÇÕES</span><span class="lang-en hidden">APPLICATIONS</span></a></li>
+        <li><a href="bibliografia.html"><span class="lang-pt">BIBLIOGRAFIA</span><span class="lang-en hidden">BIBLIOGRAPHY</span></a></li>
+        <li><a href="creditos.html"><span class="lang-pt">CRÉDITOS</span><span class="lang-en hidden">CREDITS</span></a></li>
+        <li><a href="contato.html"><span class="lang-pt">CONTATO</span><span class="lang-en hidden">CONTACT</span></a></li>
+      </ul>
+    </nav>
+    <button class="lang-btn" onclick="toggleLanguage()" id="langBtn"></button>
+  </header>
+
+  <main>
+    <section class="content-section card-style">
+      <h2>
+        <span class="lang-pt">Como é utilizado</span>
+        <span class="lang-en hidden">How it is used</span>
+      </h2>
+      <p>
+        <span class="lang-pt">A tecnologia desenvolvida para o turismo espacial traz avanços diretos para a sociedade e para o avanço científico global:</span>
+        <span class="lang-en hidden">Technology developed for space tourism brings direct advancements to society and global scientific progress:</span>
+      </p>
+
+      <div class="apps-grid">
+        <div class="app-card">
+          <h4>🧪 <span class="lang-pt">Pesquisa Científica</span><span class="lang-en hidden">Scientific Research</span></h4>
+          <p><span class="lang-pt">Experimentos em microgravidade sobre medicamentos, biologia e novos materiais.</span><span class="lang-en hidden">Microgravity experiments on medicine, biology, and new materials.</span></p>
+        </div>
+        <div class="app-card">
+          <h4>🚀 <span class="lang-pt">Foguetes Reutilizáveis</span><span class="lang-en hidden">Reusable Rockets</span></h4>
+          <p><span class="lang-pt">Redução drástica do custo por quilo lançado ao espaço, barateando satélites.</span><span class="lang-en hidden">Drastic reduction in launch costs per kilogram, making satellites cheaper.</span></p>
+        </div>
+        <div class="app-card">
+          <h4>🛰️ <span class="lang-pt">Telecomunicações</span><span class="lang-en hidden">Telecommunications</span></h4>
+          <p><span class="lang-pt">Expansão da cobertura global de internet de alta velocidade em áreas remotas.</span><span class="lang-en hidden">Expansion of global high-speed internet coverage in remote areas.</span></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>ETEC DE HORTOLÂNDIA 2026 – ©Todos os direitos reservados</p>
+    <p><small>Trabalho acadêmico sem fins lucrativos</small></p>
+  </footer>
+
+  <script>
+    function setLanguage(lang) {
+      const ptElements = document.querySelectorAll('.lang-pt');
+      const enElements = document.querySelectorAll('.lang-en');
+      const btn = document.getElementById('langBtn');
+
+      if (lang === 'en') {
+        ptElements.forEach(el => el.classList.add('hidden'));
+        enElements.forEach(el => el.classList.remove('hidden'));
+        if (btn) btn.textContent = 'Traduzir para Português 🇧🇷';
+      } else {
+        enElements.forEach(el => el.classList.add('hidden'));
+        ptElements.forEach(el => el.classList.remove('hidden'));
+        if (btn) btn.textContent = 'Translate to English 🌐';
+
+      }
+      localStorage.setItem('preferred_lang', lang);
+    }
+
+    function toggleLanguage() {
+      const currentLang = localStorage.getItem('preferred_lang') || 'pt';
+      const newLang = (currentLang === 'pt') ? 'en' : 'pt';
+      setLanguage(newLang);
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const savedLang = localStorage.getItem('preferred_lang') || 'pt';
+      setLanguage(savedLang);
+    });
+  </script>
+
+</body>
+</html>

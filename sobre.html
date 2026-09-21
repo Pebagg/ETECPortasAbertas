@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Turismo Interestelar - Sobre</title>
+  <link rel="icon" href="img/astronautasemfundo.png" type="image/png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <div class="logo">🚀 AstroTrip</div>
+    <nav>
+      <ul>
+        <li><a href="index.html"><span class="lang-pt">HOME</span><span class="lang-en hidden">HOME</span></a></li>
+        <li><a href="sobre.html" class="active"><span class="lang-pt">SOBRE</span><span class="lang-en hidden">ABOUT</span></a></li>
+        <li><a href="aplicacoes.html"><span class="lang-pt">APLICAÇÕES</span><span class="lang-en hidden">APPLICATIONS</span></a></li>
+        <li><a href="bibliografia.html"><span class="lang-pt">BIBLIOGRAFIA</span><span class="lang-en hidden">BIBLIOGRAPHY</span></a></li>
+        <li><a href="creditos.html"><span class="lang-pt">CRÉDITOS</span><span class="lang-en hidden">CREDITS</span></a></li>
+        <li><a href="contato.html"><span class="lang-pt">CONTATO</span><span class="lang-en hidden">CONTACT</span></a></li>
+      </ul>
+    </nav>
+    <button class="lang-btn" onclick="toggleLanguage()" id="langBtn"></button>
+  </header>
+
+  <main>
+    <section class="content-section card-style">
+      <h2>
+        <span class="lang-pt">Turismo Espacial e Interestelar</span>
+        <span class="lang-en hidden">Space & Interstellar Tourism</span>
+      </h2>
+      <p>
+        <span class="lang-pt">Ele evoluiu de ficção científica para uma indústria comercial em expansão. Explore abaixo os principais aspectos técnicos, econômicos e científicos sobre o presente e o futuro das viagens cósmicas:</span>
+        <span class="lang-en hidden">Space tourism has evolved from science fiction into an expanding commercial industry. Explore below the key technical, economic, and scientific aspects of present and future cosmic travel:</span>
+      </p>
+
+      <!-- GRID DE CARDS INTERATIVOS -->
+      <div class="topic-grid">
+
+        <!-- CARD 1 -->
+        <div class="topic-card">
+          <div class="card-icon">🚀</div>
+          <h3><span class="lang-pt">Modalidades de Voo</span><span class="lang-en hidden">Flight Modalities</span></h3>
+          <p><span class="lang-pt">Diferenças fundamentais entre experiências suborbitais, orbitais e expedições lunares.</span><span class="lang-en hidden">Key differences between suborbital, orbital, and lunar expeditions.</span></p>
+          <button class="btn-info" onclick="openModal('modal1')">
+            <span class="lang-pt">Saiba Mais</span><span class="lang-en hidden">Read More</span>
+          </button>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="topic-card">
+          <div class="card-icon">🪐</div>
+          <h3><span class="lang-pt">O Desafio Interestelar</span><span class="lang-en hidden">The Interstellar Challenge</span></h3>
+          <p><span class="lang-pt">Por que viajar para além do Sistema Solar exige avanços físicos e tecnológicos revolucionários.</span><span class="lang-en hidden">Why traveling beyond the Solar System requires revolutionary physics.</span></p>
+          <button class="btn-info" onclick="openModal('modal2')">
+            <span class="lang-pt">Saiba Mais</span><span class="lang-en hidden">Read More</span>
+          </button>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="topic-card">
+          <div class="card-icon">🧬</div>
+          <h3><span class="lang-pt">Impactos na Saúde Humana</span><span class="lang-en hidden">Human Health Impacts</span></h3>
+          <p><span class="lang-pt">Efeitos da microgravidade prolongada e radiação cósmica no corpo de civis não treinados.</span><span class="lang-en hidden">Effects of prolonged microgravity and cosmic radiation on civilians.</span></p>
+          <button class="btn-info" onclick="openModal('modal3')">
+            <span class="lang-pt">Saiba Mais</span><span class="lang-en hidden">Read More</span>
+          </button>
+        </div>
+
+        <!-- CARD 4 -->
+        <div class="topic-card">
+          <div class="card-icon">💵</div>
+          <h3><span class="lang-pt">Democratização & Custos</span><span class="lang-en hidden">Democratization & Costs</span></h3>
+          <p><span class="lang-pt">Do turismo exclusivo de milionários às previsões de popularização no futuro.</span><span class="lang-en hidden">From exclusive millionaire trips to future popularization forecasts.</span></p>
+          <button class="btn-info" onclick="openModal('modal4')">
+            <span class="lang-pt">Saiba Mais</span><span class="lang-en hidden">Read More</span>
+          </button>
+        </div>
+
+        <!-- CARD 5 -->
+        <div class="topic-card">
+          <div class="card-icon">🛡️</div>
+          <h3><span class="lang-pt">Ética, Direito e Impacto</span><span class="lang-en hidden">Ethics, Law & Impact</span></h3>
+          <p><span class="lang-pt">Pegada de carbono, acúmulo de lixo espacial e regulação do espaço sideral.</span><span class="lang-en hidden">Carbon footprint, space debris, and outer space regulations.</span></p>
+          <button class="btn-info" onclick="openModal('modal5')">
+            <span class="lang-pt">Saiba Mais</span><span class="lang-en hidden">Read More</span>
+          </button>
+        </div>
+
+        <!-- CARD 6 -->
+        <div class="topic-card">
+          <div class="card-icon">🌌</div>
+          <h3><span class="lang-pt">Propulsão do Futuro</span><span class="lang-en hidden">Futuristic Propulsion</span></h3>
+          <p><span class="lang-pt">Velas solares, motores de fusão nuclear e impulsionadores de antimatéria.</span><span class="lang-en hidden">Solar sails, nuclear fusion, and antimatter propulsion concepts.</span></p>
+          <button class="btn-info" onclick="openModal('modal6')">
+            <span class="lang-pt">Saiba Mais</span><span class="lang-en hidden">Read More</span>
+          </button>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- JANELAS MODAIS COM DETALHAMENTO DAS INFORMAÇÕES -->
+
+  <!-- MODAL 1 -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <span class="close-modal" onclick="closeModal('modal1')">&times;</span>
+      <h3>🚀 <span class="lang-pt">Modalidades de Voo Espacial</span><span class="lang-en hidden">Space Flight Modalities</span></h3>
+      <p class="modal-text">
+        <span class="lang-pt">
+          O turismo espacial divide-se em três níveis principais de complexidade:<br><br>
+          • <strong>Suborbital:</strong> Naves atingem cerca de 100 km de altitude (Linha de Kármán). Os passageiros vivenciam de 3 a 5 minutos de gravidade zero e contemplam a curvatura terrestre antes de retornar.<br><br>
+          • <strong>Orbital:</strong> As cápsulas entram em órbita completa ao redor da Terra a mais de 27.000 km/h, permitindo estadias de dias na Estação Espacial Internacional (ISS) ou em habitats privados.<br><br>
+          • <strong>Cislunar e Lunar:</strong> Missões planejadas para dar a volta na Lua ou pousar em sua superfície, servindo como preparação para voos mais distantes.
+        </span>
+        <span class="lang-en hidden">
+          Space tourism is divided into three main levels of complexity:<br><br>
+          • <strong>Suborbital:</strong> Spacecraft reach about 100 km altitude (Kármán Line). Passengers experience 3 to 5 minutes of zero gravity and view Earth's curvature before returning.<br><br>
+          • <strong>Orbital:</strong> Capsules enter full orbit around Earth at over 27,000 km/h, allowing multi-day stays at the International Space Station (ISS) or private habitats.<br><br>
+          • <strong>Cislunar and Lunar:</strong> Planned missions to orbit the Moon or land on its surface, serving as preparation for deep space travel.
+        </span>
+      </p>
+    </div>
+  </div>
+
+  <!-- MODAL 2 -->
+  <div id="modal2" class="modal">
+    <div class="modal-content">
+      <span class="close-modal" onclick="closeModal('modal2')">&times;</span>
+      <h3>🪐 <span class="lang-pt">O Desafio das Viagens Interestelares</span><span class="lang-en hidden">The Interstellar Travel Challenge</span></h3>
+      <p class="modal-text">
+        <span class="lang-pt">
+          Com a tecnologia atual de combustível químico, levaria cerca de 70.000 anos para alcançar Próxima Centauri (o sistema estelar mais próximo da Terra, a 4,2 anos-luz).<br><br>
+          Para viabilizar o turismo interestelar no futuro, cientistas estudam viagens que alcancem uma fração significativa da velocidade da luz. Isso envolve superar barreiras como a dilatação do tempo (teoria da relatividade de Einstein), a necessidade de escudos contra detritos interestelares e a criação de habitats autossustentáveis para gerações de viajantes.
+        </span>
+        <span class="lang-en hidden">
+          With current chemical fuel technology, it would take around 70,000 years to reach Proxima Centauri (the closest star system to Earth, 4.2 light-years away).<br><br>
+          To make future interstellar tourism viable, scientists are researching travel reaching a significant fraction of light speed. This requires overcoming relativistic time dilation, creating shields against interstellar dust, and designing self-sustaining generation habitats.
+        </span>
+      </p>
+    </div>
+  </div>
+
+  <!-- MODAL 3 -->
+  <div id="modal3" class="modal">
+    <div class="modal-content">
+      <span class="close-modal" onclick="closeModal('modal3')">&times;</span>
+      <h3>🧬 <span class="lang-pt">Impactos na Saúde do Turista Espacial</span><span class="lang-en hidden">Health Impacts on Space Tourists</span></h3>
+      <p class="modal-text">
+        <span class="lang-pt">
+          Diferente dos astronautas profissionais que treinam por anos, os civis exigem protocolos de saúde diferenciados:<br><br>
+          • <strong>Síndrome de Adaptação ao Espaço:</strong> Enjoos e desorientação provocados pela ausência de gravidade no sistema vestibular.<br><br>
+          • <strong>Atrofia Muscular e Óssea:</strong> Em missões longas, há perda acelerada de densidade óssea e massa muscular.<br><br>
+          • <strong>Radiação Cósmica:</strong> Fora do campo magnético protetor da Terra, a exposição a raios cósmicos e erupções solares aumenta significativamente o risco celular.
+        </span>
+        <span class="lang-en hidden">
+          Unlike professional astronauts who train for years, commercial passengers require custom health protocols:<br><br>
+          • <strong>Space Adaptation Syndrome:</strong> Nausea and disorientation caused by zero gravity affecting the vestibular system.<br><br>
+          • <strong>Muscle and Bone Loss:</strong> Prolonged missions lead to accelerated bone density loss and muscle atrophy.<br><br>
+          • <strong>Cosmic Radiation:</strong> Beyond Earth's protective magnetic field, exposure to cosmic rays increases cellular risks.
+        </span>
+      </p>
+    </div>
+  </div>
+
+  <!-- MODAL 4 -->
+  <div id="modal4" class="modal">
+    <div class="modal-content">
+      <span class="close-modal" onclick="closeModal('modal4')">&times;</span>
+      <h3>💵 <span class="lang-pt">Democratização e Perspectivas Econômicas</span><span class="lang-en hidden">Democratization & Economic Outlook</span></h3>
+      <p class="modal-text">
+        <span class="lang-pt">
+          Atualmente, os ingressos variam de US$ 450 mil (voos suborbitais) a mais de US$ 55 milhões (estadias orbitais na ISS).<br><br>
+          No entanto, especialistas comparam o mercado atual da aviação comercial do início do século XX. Com o aperfeiçoamento de foguetes 100% reutilizáveis (como o Starship da SpaceX), a meta para as próximas décadas é reduzir os custos operacionais em até 90%, permitindo voos ponto-a-ponto na Terra e viagens espaciais acessíveis à classe média alta.
+        </span>
+        <span class="lang-en hidden">
+          Currently, tickets range from $450,000 (suborbital flights) to over $55 million (orbital ISS stays).<br><br>
+          However, experts compare this market to early 20th-century commercial aviation. With fully reusable rockets (like SpaceX Starship), the goal over coming decades is to cut operational costs by up to 90%, opening point-to-point Earth travel and accessible space trips for broader audiences.
+        </span>
+      </p>
+    </div>
+  </div>
+
+  <!-- MODAL 5 -->
+  <div id="modal5" class="modal">
+    <div class="modal-content">
+      <span class="close-modal" onclick="closeModal('modal5')">&times;</span>
+      <h3>🛡️ <span class="lang-pt">Ética, Meio Ambiente e Leis Espaciais</span><span class="lang-en hidden">Ethics, Environment & Space Law</span></h3>
+      <p class="modal-text">
+        <span class="lang-pt">
+          A ascensão dos voos comerciais gera debates globais urgentes:<br><br>
+          • <strong>Sustentabilidade:</strong> A queima de combustíveis de foguete na alta atmosfera libera fuligem e afeta a camada de ozônio.<br><br>
+          • <strong>Lixo Espacial:</strong> Milhares de detritos em órbita aumentam o risco de colisões catastróficas (Efeito Kessler).<br><br>
+          • <strong>Tratado do Espaço Sideral (1967):</strong> Legislação internacional que precisa ser atualizada para regulamentar a exploração comercial, turismo lunar e direito de exploração de minérios asteroideais.
+        </span>
+        <span class="lang-en hidden">
+          The rise of commercial flights sparks urgent global debates:<br><br>
+          • <strong>Sustainability:</strong> Rocket fuel emissions in the upper atmosphere release soot and impact the ozone layer.<br><br>
+          • <strong>Space Debris:</strong> Thousands of orbital debris pieces raise collision risks (Kessler Syndrome).<br><br>
+          • <strong>Outer Space Treaty (1967):</strong> International laws that need updates to regulate commercial space tourism, lunar property, and asteroid mining rights.
+        </span>
+      </p>
+    </div>
+  </div>
+
+  <!-- MODAL 6 -->
+  <div id="modal6" class="modal">
+    <div class="modal-content">
+      <span class="close-modal" onclick="closeModal('modal6')">&times;</span>
+      <h3>🌌 <span class="lang-pt">Tecnologias de Propulsão Futuristas</span><span class="lang-en hidden">Futuristic Propulsion Technologies</span></h3>
+      <p class="modal-text">
+        <span class="lang-pt">
+          Para que a humanidade alcance sistemas estelares vizinhos, pesquisas teóricas e experimentais estão em andamento:<br><br>
+          • <strong>Velas Solares de Laser:</strong> Projeto <em>Breakthrough Starshot</em> busca utilizar lasers terrestres de alta potência para impulsionar micro-sondas a 20% da velocidade da luz.<br><br>
+          • <strong>Propulsão por Fusão Nuclear:</strong> Utiliza a energia da fusão de átomos para gerar empuxo contínuo com alta eficiência de combustível.<br><br>
+          • <strong>Motores de Antimatéria:</strong> A forma teórica mais eficiente de liberação de energia, capaz de reduzir o tempo de viagem interestelar de milênios para poucas décadas.
+        </span>
+        <span class="lang-en hidden">
+          To reach neighboring star systems, theoretical and experimental research is underway:<br><br>
+          • <strong>Laser Solar Sails:</strong> The <em>Breakthrough Starshot</em> project aims to use powerful Earth-based lasers to propel micro-probes at 20% light speed.<br><br>
+          • <strong>Nuclear Fusion Propulsion:</strong> Harnesses energy from atomic fusion to produce continuous thrust with high fuel efficiency.<br><br>
+          • <strong>Antimatter Engines:</strong> Theoretically the most efficient energy release method, capable of shortening interstellar journeys from millennia to a few decades.
+        </span>
+      </p>
+    </div>
+  </div>
+
+  <footer>
+    <p>ETEC DE HORTOLÂNDIA 2026 – ©Todos os direitos reservados</p>
+    <p><small>Trabalho acadêmico sem fins lucrativos</small></p>
+  </footer>
+
+  <script>
+    // --- LÓGICA DAS MODAIS (JANELAS POP-UP) ---
+    function openModal(modalId) {
+      const modal = document.getElementById(modalId);
+      if (modal) {
+        modal.style.display = 'block';
+      }
+    }
+
+    function closeModal(modalId) {
+      const modal = document.getElementById(modalId);
+      if (modal) {
+        modal.style.display = 'none';
+      }
+    }
+
+    // Fechar a janela modal se o usuário clicar fora da caixa
+    window.onclick = function(event) {
+      if (event.target.classList.contains('modal')) {
+        event.target.style.display = 'none';
+      }
+    };
+
+    // --- GERENCIADOR DE IDIOMA ---
+    function setLanguage(lang) {
+      const ptElements = document.querySelectorAll('.lang-pt');
+      const enElements = document.querySelectorAll('.lang-en');
+      const btn = document.getElementById('langBtn');
+
+      if (lang === 'en') {
+        ptElements.forEach(el => el.classList.add('hidden'));
+        enElements.forEach(el => el.classList.remove('hidden'));
+        if (btn) btn.textContent = 'Traduzir para Português 🇧🇷';
+      } else {
+        enElements.forEach(el => el.classList.add('hidden'));
+        ptElements.forEach(el => el.classList.remove('hidden'));
+        if (btn) btn.textContent = 'Translate to English 🌐';
+      }
+      localStorage.setItem('preferred_lang', lang);
+    }
+
+    function toggleLanguage() {
+      const currentLang = localStorage.getItem('preferred_lang') || 'pt';
+      const newLang = (currentLang === 'pt') ? 'en' : 'pt';
+      setLanguage(newLang);
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const savedLang = localStorage.getItem('preferred_lang') || 'pt';
+      setLanguage(savedLang);
+    });
+  </script>
+
+</body>
+</html>

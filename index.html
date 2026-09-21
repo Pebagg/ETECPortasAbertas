@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Turismo Interestelar - Home</title>
+  <link rel="icon" href="img/astronautasemfundo.png" type="image/png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="logo">🚀 AstroTrip</div>
+    <nav>
+      <ul>
+        <li><a href="index.html" class="active"><span class="lang-pt">HOME</span><span
+              class="lang-en hidden">HOME</span></a></li>
+        <li><a href="sobre.html"><span class="lang-pt">SOBRE</span><span class="lang-en hidden">ABOUT</span></a></li>
+        <li><a href="aplicacoes.html"><span class="lang-pt">APLICAÇÕES</span><span
+              class="lang-en hidden">APPLICATIONS</span></a></li>
+        <li><a href="bibliografia.html"><span class="lang-pt">BIBLIOGRAFIA</span><span
+              class="lang-en hidden">BIBLIOGRAPHY</span></a></li>
+        <li><a href="creditos.html"><span class="lang-pt">CRÉDITOS</span><span class="lang-en hidden">CREDITS</span></a>
+        </li>
+        <li><a href="contato.html"><span class="lang-pt">CONTATO</span><span class="lang-en hidden">CONTACT</span></a>
+        </li>
+      </ul>
+    </nav>
+    <button class="lang-btn" onclick="toggleLanguage()" id="langBtn">WQRWD</button>
+  </header>
+
+  <main>
+    <section class="page-section">
+      <div class="carousel-container">
+        <div class="carousel-slide fade">
+          <img src="img/neil.jpg" alt="Vista da Terra do Espaço">
+          <div class="carousel-caption">
+            <h2><span class="lang-pt">Bem-vindos ao Futuro</span><span class="lang-en hidden">Welcome to the
+                Future</span></h2>
+            <p><span class="lang-pt">A era das viagens espaciais comerciais começou.</span><span
+                class="lang-en hidden">The era of commercial space travel has begun.</span></p>
+          </div>
+        </div>
+
+        <div class="carousel-slide fade">
+          <img src="img/foguete.jpg" alt="Foguete Espacial">
+          <div class="carousel-caption">
+            <h2><span class="lang-pt">Tecnologia Reutilizável</span><span class="lang-en hidden">Reusable
+                Technology</span></h2>
+            <p><span class="lang-pt">Foguetes modernos tornando o espaço acessível.</span><span
+                class="lang-en hidden">Modern rockets making space accessible.</span></p>
+          </div>
+        </div>
+
+        <div class="carousel-slide fade">
+          <img src="img/satelite2.jpg" alt="Órbita Terrestre">
+          <div class="carousel-caption">
+            <h2><span class="lang-pt">Experiência Orbital</span><span class="lang-en hidden">Orbital Experience</span>
+            </h2>
+            <p><span class="lang-pt">Sinta a gravidade zero e veja a curvatura da Terra.</span><span
+                class="lang-en hidden">Feel zero gravity and see Earth's curvature.</span></p>
+          </div>
+        </div>
+
+        <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="next" onclick="moveSlide(1)">&#10095;</button>
+      </div>
+
+      <div class="home-intro">
+        <h2>
+          <span class="lang-pt">Projeto: Turismo Interestelar e Espacial</span>
+          <span class="lang-en hidden">Project: Interstellar & Space Tourism</span>
+        </h2>
+        <p>
+          <span class="lang-pt">Este portal apresenta o panorama atual e o futuro da exploração espacial humana
+            comercial, destacando inovações tecnológicas, acessibilidade e perspectivas da navegação entre
+            estrelas.</span>
+          <span class="lang-en hidden">This portal presents the current panorama and future of commercial human space
+            exploration, highlighting technological innovations, accessibility, and prospects of interstellar
+            navigation.</span>
+        </p>
+      </div>
+
+      <div class="home-cards">
+        <div class="card-item">
+          <img src="img/astronaute.png" width="56">
+          <h3><span class="lang-pt">Suborbital</span><span class="lang-en hidden">Suborbital</span></h3>
+          <p><span class="lang-pt">Voos rápidos atingindo a borda do espaço para flutuação em gravidade
+              zero.</span><span class="lang-en hidden">Quick flights reaching the edge of space for zero-gravity
+              floating.</span></p>
+        </div>
+        <div class="card-item">
+          <img src="img/stat.png" width="56">
+          <h3><span class="lang-pt">Orbital</span><span class="lang-en hidden">Orbital</span></h3>
+          <p><span class="lang-pt">Estadias de vários dias em órbita da Terra ou na Estação Espacial.</span><span
+              class="lang-en hidden">Multi-day stays in Earth orbit or aboard the Space Station.</span></p>
+        </div>
+        <div class="card-item">
+          <img src="img/espaco.png" width="88">
+          <h3><span class="lang-pt">Interestelar</span><span class="lang-en hidden">Interstellar</span></h3>
+          <p><span class="lang-pt">Conceitos e pesquisas para missões rumo a outros sistemas solares.</span><span
+              class="lang-en hidden">Concepts and research for missions towards other solar systems.</span></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>ETEC DE HORTOLÂNDIA 2026 – ©Todos os direitos reservados</p>
+    <p><small>Trabalho acadêmico sem fins lucrativos</small></p>
+  </footer>
+
+  <script>
+    let slideIndex = 1;
+    let timer = null;
+
+    showSlides(slideIndex);
+    startTimer();
+
+    function moveSlide(n) {
+      clearInterval(timer);
+      showSlides(slideIndex += n);
+      startTimer();
+    }
+
+    function showSlides(n) {
+      let slides = document.getElementsByClassName("carousel-slide");
+      if (slides.length === 0) return;
+
+      if (n > slides.length) { slideIndex = 1; }
+      if (n < 1) { slideIndex = slides.length; }
+
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slides[slideIndex - 1].style.display = "block";
+    }
+
+    function startTimer() {
+      timer = setInterval(() => {
+        slideIndex++;
+        showSlides(slideIndex);
+      }, 7000);
+    }
+
+    // --- GERENCIADOR DE IDIOMA ---
+    function setLanguage(lang) {
+      const ptElements = document.querySelectorAll('.lang-pt');
+      const enElements = document.querySelectorAll('.lang-en');
+      const btn = document.getElementById('langBtn');
+
+      if (lang === 'en') {
+        ptElements.forEach(el => el.classList.add('hidden'));
+        enElements.forEach(el => el.classList.remove('hidden'));
+        if (btn) btn.textContent = 'Traduzir para Português 🇧🇷';
+      } else {
+        enElements.forEach(el => el.classList.add('hidden'));
+        ptElements.forEach(el => el.classList.remove('hidden'));
+        if (btn) btn.textContent = 'Translate to English 🇺🇸';
+      }
+      localStorage.setItem('preferred_lang', lang);
+    }
+
+    function toggleLanguage() {
+      const currentLang = localStorage.getItem('preferred_lang') || 'pt';
+      const newLang = (currentLang === 'pt') ? 'en' : 'pt';
+      setLanguage(newLang);
+    }
+
+    // Aplica o idioma salvo ao carregar a página
+    window.addEventListener('DOMContentLoaded', () => {
+      const savedLang = localStorage.getItem('preferred_lang') || 'pt';
+      setLanguage(savedLang);
+    });
+  </script>
+
+</body>
+
+</html>

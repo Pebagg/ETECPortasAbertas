@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Turismo Interestelar - Contato</title>
+  <link rel="icon" href="img/astronautasemfundo.png" type="image/png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="logo">🚀 AstroTrip</div>
+    <nav>
+      <ul>
+        <li><a href="index.html"><span class="lang-pt">HOME</span><span class="lang-en hidden">HOME</span></a></li>
+        <li><a href="sobre.html"><span class="lang-pt">SOBRE</span><span class="lang-en hidden">ABOUT</span></a></li>
+        <li><a href="aplicacoes.html"><span class="lang-pt">APLICAÇÕES</span><span class="lang-en hidden">APPLICATIONS</span></a></li>
+        <li><a href="bibliografia.html"><span class="lang-pt">BIBLIOGRAFIA</span><span class="lang-en hidden">BIBLIOGRAPHY</span></a></li>
+        <li><a href="creditos.html"><span class="lang-pt">CRÉDITOS</span><span class="lang-en hidden">CREDITS</span></a></li>
+        <li><a href="contato.html"><span class="lang-pt">CONTATO</span><span class="lang-en hidden">CONTACT</span></a></li>
+      </ul>
+    </nav>
+    <button class="lang-btn" onclick="toggleLanguage()" id="langBtn">WQRWD</button>
+  </header>
+
+  <main>
+    <section class="content-section card-style">
+      <h2>
+        <span class="lang-pt">Fale Conosco</span>
+        <span class="lang-en hidden">Contact Us</span>
+      </h2>
+      <p>
+        <span class="lang-pt">Tem alguma dúvida sobre nossas viagens espaciais ou deseja enviar um feedback? Preencha o formulário abaixo.</span>
+        <span class="lang-en hidden">Have any questions about our space travels or want to send feedback? Fill out the form below.</span>
+      </p>
+
+      <!-- Formulário de Contato com validação HTML5 e JS -->
+      <form class="contact-form" id="contactForm" novalidate>
+        
+        <div class="form-group">
+          <label for="nome">
+            <span class="lang-pt">Nome Completo:</span>
+            <span class="lang-en hidden">Full Name:</span>
+          </label>
+          <input type="text" id="nome" name="nome" required placeholder="Digite seu nome completo">
+        </div>
+
+        <div class="form-group">
+          <label for="email">
+            <span class="lang-pt">E-mail:</span>
+            <span class="lang-en hidden">E-mail:</span>
+          </label>
+          <input type="email" id="email" name="email" required placeholder="seu_email@exemplo.com">
+        </div>
+
+        <div class="form-group">
+          <label for="telefone">
+            <span class="lang-pt">Telefone / WhatsApp:</span>
+            <span class="lang-en hidden">Phone / WhatsApp:</span>
+          </label>
+          <input type="tel" id="telefone" name="telefone" required placeholder="(19) 99999-9999" pattern="^\(\d{2}\)\s?\d{4,5}-\d{4}$">
+        </div>
+
+        <div class="form-group">
+          <label for="avaliacao">
+            <span class="lang-pt">Avalie nosso site (0 a 5):</span>
+            <span class="lang-en hidden">Rate our website (0 to 5):</span>
+          </label>
+          <select id="avaliacao" name="avaliacao" required>
+            <option value="" disabled selected>Selecione uma nota</option>
+            <option value="0">0 - Ruim</option>
+            <option value="1">1 - Regular</option>
+            <option value="2">2 - Bom</option>
+            <option value="3">3 - Muito Bom</option>
+            <option value="4">4 - Excelente</option>
+            <option value="5">5 - Espetacular</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="comentario">
+            <span class="lang-pt">Deixe seu comentário:</span>
+            <span class="lang-en hidden">Leave your comment:</span>
+          </label>
+          <!-- Textarea travada (resize: none aplicado via CSS fornecido) -->
+          <textarea id="comentario" name="comentario" rows="5" required placeholder="Escreva sua mensagem aqui..."></textarea>
+        </div>
+
+        <button type="submit" class="btn">
+          <span class="lang-pt">Enviar Mensagem</span>
+          <span class="lang-en hidden">Send Message</span>
+        </button>
+      </form>
+      
+      <!-- Mensagem de Sucesso Oculta -->
+      <div id="successMsg" class="hidden" style="margin-top: 20px; color: #00ffea; font-weight: bold;">
+        <span class="lang-pt">✨ Mensagem enviada com sucesso! Obrigado pelo contato.</span>
+        <span class="lang-en hidden">✨ Message sent successfully! Thank you for contacting us.</span>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>ETEC DE HORTOLÂNDIA 2026 – ©Todos os direitos reservados</p>
+    <p><small>Trabalho acadêmico sem fins lucrativos</small></p>
+  </footer>
+
+  <script>
+    // --- GERENCIADOR DE IDIOMA ---
+    function setLanguage(lang) {
+      const ptElements = document.querySelectorAll('.lang-pt');
+      const enElements = document.querySelectorAll('.lang-en');
+      const btn = document.getElementById('langBtn');
+
+      if (lang === 'en') {
+        ptElements.forEach(el => el.classList.add('hidden'));
+        enElements.forEach(el => el.classList.remove('hidden'));
+        if (btn) btn.textContent = 'Traduzir para Português 🇧🇷';
+      } else {
+        enElements.forEach(el => el.classList.add('hidden'));
+        ptElements.forEach(el => el.classList.remove('hidden'));
+        if (btn) btn.textContent = 'Translate to English 🇺🇸';
+      }
+      localStorage.setItem('preferred_lang', lang);
+    }
+
+    function toggleLanguage() {
+      const currentLang = localStorage.getItem('preferred_lang') || 'pt';
+      const newLang = (currentLang === 'pt') ? 'en' : 'pt';
+      setLanguage(newLang);
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const savedLang = localStorage.getItem('preferred_lang') || 'pt';
+      setLanguage(savedLang);
+
+      // --- VALIDAÇÃO ADICIONAL COM JS ---
+      const form = document.getElementById('contactForm');
+      const successMsg = document.getElementById('successMsg');
+
+      form.addEventListener('submit', function(event) {
+        event.preventDefault(); // Evita o recarregamento padrão da página
+
+        // Validação nativa do HTML5 combinada com checagem JS
+        if (!form.checkValidity()) {
+          form.reportValidity(); // Mostra os balões de erro nativos do navegador
+          return;
+        }
+
+        // Simulação de envio bem-sucedido
+        form.reset();
+        successMsg.classList.remove('hidden');
+
+        setTimeout(() => {
+          successMsg.classList.add('hidden');
+        }, 5000);
+      });
+    });
+  </script>
+
+</body>
+</html>
